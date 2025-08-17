@@ -1,7 +1,8 @@
 {
   "name": "lumos-ui",
+  "version": "1.0.0",
+  "description": "Uma biblioteca de componentes React moderna e elegante com Tailwind CSS",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "exports": {
     ".": {
@@ -13,8 +14,10 @@
     "./styles.css": "./dist/index.css"
   },
   "styles": "./dist/index.css",
-  "fiels": [
-    "dist"
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"
@@ -29,9 +32,41 @@
     "test:watch": "vitest --watch",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "lint": "eslint . --ext .ts,.tsx --fix",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write .",
+    "prepublishOnly": "npm run test:run && npm run build",
     "prepare": "husky"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "tailwind",
+    "typescript",
+    "library",
+    "lumos"
+  ],
+  "author": {
+    "name": "Tiago Mota",
+    "email": "thyagomotha2000@exemplo.com",
+    "url": "https://github.com/TiagoM13"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiagoM13/lumos-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TiagoM13/lumos-ui/issues"
+  },
+  "homepage": "https://github.com/TiagoM13/lumos-ui#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",

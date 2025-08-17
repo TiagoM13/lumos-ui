@@ -13,11 +13,12 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", "@headlessui/react"],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+          "@headlessui/react": "HeadlessUI",
         },
       },
     },
@@ -42,7 +43,7 @@ export default defineConfig({
       reporter: ["text", "lcov"],
       all: true,
       include: ["src/components/**/*.tsx"],
-      exclude: ["node_modules", "dist"],
+      exclude: ["node_modules", "dist", "**/*.test.*", "**/*.stories.*"],
     },
   },
 });
