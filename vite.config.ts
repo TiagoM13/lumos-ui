@@ -1,11 +1,40 @@
-/// <reference types="vitest/config" />
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import path from "path";
+import dts from "vite-plugin-dts";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  build: {
+    lib: {
+      entry: path.resolve(__dirname, "src/index.ts"),
+      name: "PhotonUI",
+      fileName: (format) => `index.${format}.js`,
+    },
+    rollupOptions: {
+      external: ["react", "react-dom", "@headlessui/react"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+          "@headlessui/react": "HeadlessUI",
+        },
+      },
+    },
+    cssCodeSplit: true,
+    sourcemap: true,
+    emptyOutDir: true,
+  },
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+      rollupTypes: true,
+      outDir: "dist/types",
+    }),
+    tailwindcss(),
+  ],
   test: {
     globals: true,
     environment: "jsdom",
@@ -14,7 +43,7 @@ export default defineConfig({
       reporter: ["text", "lcov"],
       all: true,
       include: ["src/components/**/*.tsx"],
-      exclude: ["node_modules", "dist"],
+      exclude: ["node_modules", "dist", "**/*.test.*", "**/*.stories.*"],
     },
   },
 });
