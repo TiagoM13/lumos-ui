@@ -1,6 +1,6 @@
 # ⚡ Photon UI
 
-### _Components at the speed of light_
+_Components at the speed of light_
 
 Uma biblioteca de componentes React revolucionária que combina performance excepcional, design moderno e experiência de desenvolvedor incomparável.
 
@@ -9,8 +9,8 @@ Uma biblioteca de componentes React revolucionária que combina performance exce
 <p align="center">
   <img src="https://img.shields.io/npm/v/photon-ui?style=for-the-badge&color=6366f1" alt="NPM Version" />
   <img src="https://img.shields.io/npm/dm/photon-ui?style=for-the-badge&color=10b981" alt="Downloads" />
-  <img src="https://img.shields.io/bundlephobia/minzip/photon-ui?style=for-the-badge&color=f59e0b" alt="Bundle Size" />
-  <img src="https://img.shields.io/github/license/seu-usuario/photon-ui?style=for-the-badge&color=ec4899" alt="License" />
+  <!-- <img src="https://img.shields.io/bundlephobia/minzip/photon-ui?style=for-the-badge&color=f59e0b" alt="Bundle Size" /> -->
+  <img src="https://img.shields.io/github/license/TiagoM13/photon-ui?style=for-the-badge&color=ec4899" alt="License" />
 </p>
 
 ---
@@ -52,7 +52,7 @@ npm install photon-ui
 # Yarn
 yarn add photon-ui
 
-# PNPM (recomendado)
+# PNPM
 pnpm add photon-ui
 ```
 
@@ -60,7 +60,7 @@ pnpm add photon-ui
 
 ```tsx
 // 1. Importe os estilos (apenas uma vez)
-import "photon-ui/styles";
+import "photon-ui/styles.css";
 
 // 2. Use qualquer componente
 import { PButton, PInput, PCard, PModal } from "photon-ui";
@@ -170,6 +170,7 @@ Modal com animações cinematográficas e backdrop blur.
 
 ---
 
+<!--
 ## 🔧 Customização Avançada
 
 ### 🎛️ **Tema Personalizado**
@@ -199,7 +200,7 @@ function App() {
     </PhotonProvider>
   );
 }
-```
+``` -->
 
 ### 🎨 **CSS Customizado**
 
@@ -257,63 +258,6 @@ pnpm build
 | **First Paint**  | `0.8s` ⚡   | `1.4s`      | `2.1s`      | `1.2s`    |
 | **Tree Shaking** | ✅ Perfeito | ❌ Limitado | ❌ Limitado | ✅ Bom    |
 | **TypeScript**   | ✅ Nativo   | ✅ Bom      | ❌ Básico   | ✅ Bom    |
-
----
-
-## 🏆 Casos de Uso Reais
-
-### 🚀 **Startups Inovadoras**
-
-> _"Photon UI nos permitiu criar uma interface futurística que impressiona investidores e usuários. Performance incrível!"_  
-> — **João Silva, CTO da TechNova**
-
-### 💼 **Aplicações Enterprise**
-
-> _"A tipagem TypeScript e componentização salvaram semanas de desenvolvimento. Recomendo!"_  
-> — **Maria Santos, Lead Developer na CorpTech**
-
-### 🎮 **Apps Gaming**
-
-> _"Os efeitos visuais e animações deram vida ao nosso dashboard. Exactly what we needed!"_  
-> — **Alex Johnson, UI Designer na GameStudio**
-
----
-
-## 🤝 Comunidade & Suporte
-
-### 💬 **Junte-se à Nossa Comunidade**
-
-- 💬 [Discord](https://discord.gg/photon-ui) - Chat em tempo real
-- 🐦 [Twitter](https://twitter.com/photon_ui) - Novidades e dicas
-- 📧 [Newsletter](https://photon-ui.dev/newsletter) - Updates semanais
-
-### 🆘 **Precisa de Ajuda?**
-
-- 🐛 [Reportar Bug](https://github.com/seu-usuario/photon-ui/issues/new?template=bug_report.md)
-- 💡 [Sugerir Feature](https://github.com/seu-usuario/photon-ui/issues/new?template=feature_request.md)
-- 📧 **Email**: support@photon-ui.dev
-
----
-
-## 🎯 Roadmap 2025
-
-### 🚀 **Q1 2025**
-
-- [ ] **PChart** - Gráficos animados
-- [ ] **PTable** - Tabela com virtualization
-- [ ] **PDatePicker** - Seletor de data futurístico
-
-### ⚡ **Q2 2025**
-
-- [ ] **React Native** support
-- [ ] **Vue.js** adapter
-- [ ] **AI-powered** component generator
-
-### 🌟 **Q3 2025**
-
-- [ ] **3D Components** com Three.js
-- [ ] **Voice Commands** integration
-- [ ] **AR/VR** components
 
 ---
 
