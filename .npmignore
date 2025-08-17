@@ -1,0 +1,31 @@
+# Diretórios desnecessários
+node_modules
+dist/storybook
+coverage
+.storybook
+.github
+.vscode
+scripts
+examples
+
+# Arquivos de configuração
+*.log
+*.lock
+*.env
+*.tsbuildinfo
+tsconfig.json
+vitest.config.ts
+jest.config.js
+babel.config.js
+rollup.config.js
+webpack.config.js
+
+# Testes e documentação interna
+__tests__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Outros
+.DS_Store
