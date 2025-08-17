@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "LumosUI",
+      name: "PhotonUI",
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
