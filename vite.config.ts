@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -16,7 +17,7 @@ export default defineConfig({
       output: {
         globals: {
           react: "React",
-          "react-dom": "ReactDom",
+          "react-dom": "ReactDOM",
         },
       },
     },
@@ -33,4 +34,15 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["./src/setupTests.ts"],
+    coverage: {
+      reporter: ["text", "lcov"],
+      all: true,
+      include: ["src/components/**/*.tsx"],
+      exclude: ["node_modules", "dist"],
+    },
+  },
 });
