@@ -1,7 +1,8 @@
 {
-  "name": "lumos-ui",
+  "name": "photon-ui",
+  "version": "1.0.0",
+  "description": "⚡ Components at the speed of light - Uma biblioteca de componentes React revolucionária com performance excepcional e design futurístico",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "exports": {
     ".": {
@@ -13,8 +14,10 @@
     "./styles.css": "./dist/index.css"
   },
   "styles": "./dist/index.css",
-  "fiels": [
-    "dist"
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"
@@ -23,15 +26,58 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest --coverage",
+    "test:ui": "vitest --ui",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui",
-    "lint": "eslint . --ext .ts,.tsx --fix",
-    "format": "prettier --write .",
-    "prepare": "husky"
+    "prepublishOnly": "npm run test:run && npm run lint && npm run build",
+    "prepare": "npm run build",
+    "release": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "photon",
+    "quantum",
+    "tailwind",
+    "typescript",
+    "library",
+    "design-system",
+    "performance",
+    "modern",
+    "fast",
+    "glow",
+    "animations",
+    "futuristic"
+  ],
+  "author": {
+    "name": "Tiago Mota",
+    "email": "thyagomotha2000@exemplo.com",
+    "url": "https://github.com/TiagoM13"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiagoM13/lumos-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TiagoM13/lumos-ui/issues"
+  },
+  "homepage": "https://github.com/TiagoM13/lumos-ui#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
