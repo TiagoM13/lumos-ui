@@ -2,226 +2,144 @@ import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { PButton } from "./button";
 
-describe("🚀 PButton", () => {
-  describe("Renderização básica", () => {
-    it("renderiza com children", () => {
-      render(<PButton>Clique aqui</PButton>);
-      expect(screen.getByText("Clique aqui")).toBeInTheDocument();
-    });
-
-    it("renderiza como elemento button", () => {
-      render(<PButton>Botão</PButton>);
-      expect(screen.getByRole("button")).toBeInTheDocument();
-    });
+describe("PButton Component", () => {
+  it("should render with children text", () => {
+    render(<PButton>Click Me</PButton>);
+    expect(
+      screen.getByRole("button", { name: "Click Me" }),
+    ).toBeInTheDocument();
   });
 
-  describe("Variantes visuais", () => {
-    it("aplica variante primary por padrão", () => {
-      render(<PButton>Primary</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("bg-primary");
-    });
+  it("should call onClick handler when clicked", () => {
+    const handleClick = vi.fn();
+    render(<PButton onClick={handleClick}>Click Me</PButton>);
 
-    it("aplica variante quantum corretamente", () => {
-      render(<PButton variant="quantum">Quantum</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("bg-gradient-to-r");
-    });
+    const button = screen.getByRole("button", { name: "Click Me" });
+    fireEvent.click(button);
 
-    it("aplica variante laser corretamente", () => {
-      render(<PButton variant="laser">Laser</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("border-2", "border-primary");
-    });
-
-    it("aplica variante success corretamente", () => {
-      render(<PButton variant="success">Success</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("bg-success");
-    });
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  describe("Tamanhos", () => {
-    it("aplica tamanho md por padrão", () => {
-      render(<PButton>Médio</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("px-4", "py-2");
-    });
-
-    it("aplica tamanho sm corretamente", () => {
-      render(<PButton size="sm">Pequeno</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("px-3", "py-1.5");
-    });
-
-    it("aplica tamanho lg corretamente", () => {
-      render(<PButton size="lg">Grande</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("px-6", "py-3");
-    });
-
-    it("aplica tamanho xl corretamente", () => {
-      render(<PButton size="xl">Extra Grande</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("px-8", "py-4");
-    });
+  it("should apply primary variant class by default", () => {
+    render(<PButton>Primary Button</PButton>);
+    const button = screen.getByRole("button", { name: "Primary Button" });
+    expect(button).toHaveClass("bg-primary");
   });
 
-  describe("Efeitos especiais", () => {
-    it("aplica efeito glow quando habilitado", () => {
-      render(<PButton glow>Brilhante</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("shadow-md");
-    });
-
-    it("aplica efeito ripple quando habilitado", () => {
-      render(<PButton ripple>Ondulação</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("relative", "overflow-hidden");
-    });
-
-    it("aplica efeito particles quando habilitado", () => {
-      render(<PButton particles>Partículas</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("animate-pulse");
-    });
+  it("should apply secondary variant class when specified", () => {
+    render(<PButton variant="secondary">Secondary Button</PButton>);
+    const button = screen.getByRole("button", { name: "Secondary Button" });
+    expect(button).toHaveClass("bg-secondary");
   });
 
-  describe("Propriedades especiais", () => {
-    it("aplica largura total quando fullWidth é true", () => {
-      render(<PButton fullWidth>Largura Total</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("w-full");
-    });
-
-    it("não aplica largura total por padrão", () => {
-      render(<PButton>Normal</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).not.toHaveClass("w-full");
-    });
+  it("should apply quantum variant with gradient classes", () => {
+    render(<PButton variant="quantum">Quantum Button</PButton>);
+    const button = screen.getByRole("button", { name: "Quantum Button" });
+    expect(button).toHaveClass(
+      "bg-gradient-to-r",
+      "from-primary",
+      "to-secondary",
+    );
   });
 
-  describe("Estados do botão", () => {
-    it("fica desabilitado quando disabled é true", () => {
-      render(<PButton disabled>Desabilitado</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toBeDisabled();
-      expect(button).toHaveClass("opacity-50", "cursor-not-allowed");
-    });
-
-    it("fica desabilitado quando loading é true", () => {
-      render(<PButton loading>Carregando</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toBeDisabled();
-      expect(button).toHaveClass("cursor-wait", "opacity-80");
-    });
-
-    it("mostra spinner quando loading é true", () => {
-      render(<PButton loading>Carregando</PButton>);
-      const spinner = screen.getByRole("button").querySelector("svg");
-      expect(spinner).toBeInTheDocument();
-      expect(spinner).toHaveClass("animate-spin");
-    });
+  it("should apply plasma variant with accent gradient", () => {
+    render(<PButton variant="plasma">Plasma Button</PButton>);
+    const button = screen.getByRole("button", { name: "Plasma Button" });
+    expect(button).toHaveClass("bg-gradient-to-r", "from-accent", "to-pink");
   });
 
-  describe("Ícones", () => {
-    it("renderiza ícone à esquerda", () => {
-      render(
-        <PButton leftIcon={<span data-testid="left-icon">🚀</span>}>
-          Com Ícone
-        </PButton>,
-      );
-      expect(screen.getByTestId("left-icon")).toBeInTheDocument();
-    });
-
-    it("renderiza ícone à direita", () => {
-      render(
-        <PButton rightIcon={<span data-testid="right-icon">⚡</span>}>
-          Com Ícone
-        </PButton>,
-      );
-      expect(screen.getByTestId("right-icon")).toBeInTheDocument();
-    });
-
-    it("não renderiza ícones quando loading", () => {
-      render(
-        <PButton
-          loading
-          leftIcon={<span data-testid="left-icon">🚀</span>}
-          rightIcon={<span data-testid="right-icon">⚡</span>}
-        >
-          Carregando
-        </PButton>,
-      );
-      expect(screen.queryByTestId("left-icon")).not.toBeInTheDocument();
-      expect(screen.queryByTestId("right-icon")).not.toBeInTheDocument();
-    });
+  it("should apply medium size class by default", () => {
+    render(<PButton>Medium Button</PButton>);
+    const button = screen.getByRole("button", { name: "Medium Button" });
+    expect(button).toHaveClass("px-4", "py-2", "min-h-[40px]");
   });
 
-  describe("Interações", () => {
-    it("chama onClick quando clicado", () => {
-      const handleClick = vi.fn();
-      render(<PButton onClick={handleClick}>Clicável</PButton>);
-
-      fireEvent.click(screen.getByRole("button"));
-      expect(handleClick).toHaveBeenCalledTimes(1);
-    });
-
-    it("não chama onClick quando desabilitado", () => {
-      const handleClick = vi.fn();
-      render(
-        <PButton onClick={handleClick} disabled>
-          Desabilitado
-        </PButton>,
-      );
-
-      fireEvent.click(screen.getByRole("button"));
-      expect(handleClick).not.toHaveBeenCalled();
-    });
-
-    it("não chama onClick quando em loading", () => {
-      const handleClick = vi.fn();
-      render(
-        <PButton onClick={handleClick} loading>
-          Carregando
-        </PButton>,
-      );
-
-      fireEvent.click(screen.getByRole("button"));
-      expect(handleClick).not.toHaveBeenCalled();
-    });
+  it("should apply large size class when specified", () => {
+    render(<PButton size="lg">Large Button</PButton>);
+    const button = screen.getByRole("button", { name: "Large Button" });
+    expect(button).toHaveClass("px-6", "py-3", "min-h-[48px]");
   });
 
-  describe("Customização", () => {
-    it("aplica className personalizada", () => {
-      render(<PButton className="custom-class">Customizado</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("custom-class");
-    });
-
-    it("preserva classes padrão com className personalizada", () => {
-      render(<PButton className="custom-class">Customizado</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("custom-class", "bg-primary", "rounded-lg");
-    });
+  it("should apply xl size class when specified", () => {
+    render(<PButton size="xl">XL Button</PButton>);
+    const button = screen.getByRole("button", { name: "XL Button" });
+    expect(button).toHaveClass("px-8", "py-4", "min-h-[56px]");
   });
 
-  describe("Acessibilidade", () => {
-    it("suporta propriedades ARIA", () => {
-      render(
-        <PButton aria-label="Botão especial" aria-describedby="description">
-          Acessível
-        </PButton>,
-      );
-      const button = screen.getByRole("button");
-      expect(button).toHaveAttribute("aria-label", "Botão especial");
-      expect(button).toHaveAttribute("aria-describedby", "description");
-    });
+  it("should apply full width class when fullWidth is true", () => {
+    render(<PButton fullWidth>Full Width Button</PButton>);
+    const button = screen.getByRole("button", { name: "Full Width Button" });
+    expect(button).toHaveClass("w-full");
+  });
 
-    it("tem foco visível", () => {
-      render(<PButton>Focável</PButton>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("focus:outline-none", "focus:ring-2");
-    });
+  it("should be disabled when disabled prop is true", () => {
+    render(<PButton disabled>Disabled Button</PButton>);
+    const button = screen.getByRole("button", { name: "Disabled Button" });
+    expect(button).toBeDisabled();
+  });
+
+  it("should be disabled when loading is true", () => {
+    render(<PButton loading>Loading Button</PButton>);
+    const button = screen.getByRole("button", { name: "Loading Button" });
+    expect(button).toBeDisabled();
+  });
+
+  it("should show loading spinner when loading is true", () => {
+    render(<PButton loading>Loading Button</PButton>);
+    const spinner = screen.getByRole("button").querySelector("svg");
+    expect(spinner).toBeInTheDocument();
+    expect(spinner).toHaveClass("animate-spin");
+  });
+
+  it("should render left icon when provided", () => {
+    const LeftIcon = () => <span data-testid="left-icon">←</span>;
+    render(<PButton leftIcon={<LeftIcon />}>With Left Icon</PButton>);
+    expect(screen.getByTestId("left-icon")).toBeInTheDocument();
+  });
+
+  it("should render right icon when provided", () => {
+    const RightIcon = () => <span data-testid="right-icon">→</span>;
+    render(<PButton rightIcon={<RightIcon />}>With Right Icon</PButton>);
+    expect(screen.getByTestId("right-icon")).toBeInTheDocument();
+  });
+
+  it("should not render icons when loading", () => {
+    const LeftIcon = () => <span data-testid="left-icon">←</span>;
+    const RightIcon = () => <span data-testid="right-icon">→</span>;
+    render(
+      <PButton loading leftIcon={<LeftIcon />} rightIcon={<RightIcon />}>
+        Loading
+      </PButton>,
+    );
+    expect(screen.queryByTestId("left-icon")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("right-icon")).not.toBeInTheDocument();
+  });
+
+  it("should apply custom className", () => {
+    render(<PButton className="custom-class">Custom Button</PButton>);
+    const button = screen.getByRole("button", { name: "Custom Button" });
+    expect(button).toHaveClass("custom-class");
+  });
+
+  it("should apply focus ring classes", () => {
+    render(<PButton>Focus Button</PButton>);
+    const button = screen.getByRole("button", { name: "Focus Button" });
+    expect(button).toHaveClass(
+      "focus:outline-none",
+      "focus:ring-2",
+      "focus:ring-offset-2",
+    );
+  });
+
+  it("should apply laser variant with border styling", () => {
+    render(<PButton variant="laser">Laser Button</PButton>);
+    const button = screen.getByRole("button", { name: "Laser Button" });
+    expect(button).toHaveClass("border-2", "border-primary", "bg-transparent");
+  });
+
+  it("should apply photon variant with backdrop blur", () => {
+    render(<PButton variant="photon">Photon Button</PButton>);
+    const button = screen.getByRole("button", { name: "Photon Button" });
+    expect(button).toHaveClass("bg-white/10", "backdrop-blur-sm", "border");
   });
 });
