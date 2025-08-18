@@ -82,8 +82,8 @@
   "dependencies": {
     "@headlessui/react": "^2.2.7",
     "@tailwindcss/vite": "^4.1.12",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
     "vite-plugin-dts": "^4.5.4"
   },
   "devDependencies": {
@@ -93,7 +93,7 @@
     "@storybook/addon-docs": "^9.1.2",
     "@storybook/addon-onboarding": "^9.1.2",
     "@storybook/addon-vitest": "^9.1.2",
-    "@storybook/react-vite": "^9.1.2",
+    "@storybook/react-vite": "9.1.2",
     "@testing-library/jest-dom": "^6.7.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
