@@ -147,12 +147,16 @@ Modal com animações cinematográficas e backdrop blur.
 
 ```css
 /* Cores Primárias */
---photon-blue: #2563eb /* Luz azul de alta energia */ --photon-violet: #7c3aed
-  /* Radiação ultravioleta */ --photon-cyan: #06b6d4 /* Luz ciano brilhante */
-  /* Cores de Estado */ --quantum-success: #10b981 /* Verde quântico */
-  --plasma-danger: #ef4444 /* Vermelho plasma */ --laser-warning: #f59e0b
-  /* Amarelo laser */ /* Efeitos Especiais */ --glow-primary: 0 0 20px
-  rgb(37 99 235 / 50%) --shadow-quantum: 0 8px 32px rgb(0 0 0 / 20%);
+--photon-blue: #2563eb /* Luz azul de alta energia */ 
+--photon-violet: #7c3aed /* Radiação ultravioleta */ 
+--photon-cyan: #06b6d4 /* Luz ciano brilhante */
+  /* Cores de Estado */ 
+--quantum-success: #10b981 /* Verde quântico */
+--plasma-danger: #ef4444 /* Vermelho plasma */ 
+--laser-warning: #f59e0b /* Amarelo laser */ 
+/* Efeitos Especiais */ 
+--glow-primary: 0 0 20px rgb(37 99 235 / 50%) 
+--shadow-quantum: 0 8px 32px rgb(0 0 0 / 20%);
 ```
 
 ### ✨ **Animações de Fóton**
