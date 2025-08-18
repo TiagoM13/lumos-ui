@@ -20,6 +20,7 @@ jobs:
           rm -rf node_modules package-lock.json
           npm install
 
+      - run: rm -rf node_modules/.cache .eslintcache
       - run: npm test
       - run: npm run build
       - run: npm publish
