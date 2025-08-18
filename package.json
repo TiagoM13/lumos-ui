@@ -1,5 +1,5 @@
 {
-  "name": "@tiagomdev/photon-ui",
+  "name": "@quantum/photon-ui",
   "version": "1.0.0",
   "description": "⚡ Components at the speed of light - Uma biblioteca de componentes React revolucionária com performance excepcional e design futurístico",
   "type": "module",
@@ -64,12 +64,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TiagoM13/lumos-ui.git"
+    "url": "git+https://github.com/TiagoM13/photon-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/TiagoM13/lumos-ui/issues"
+    "url": "https://github.com/TiagoM13/photon-ui/issues"
   },
-  "homepage": "https://github.com/TiagoM13/lumos-ui#readme",
+  "homepage": "https://github.com/TiagoM13/photon-ui#readme",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
