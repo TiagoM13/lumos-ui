@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { type Meta, type StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { PModal } from "./modal";
 import { PButton } from "../button/button";
 import { PInput } from "../input/input";

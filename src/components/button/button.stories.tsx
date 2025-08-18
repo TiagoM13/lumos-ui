@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { PButton, type ButtonVariant, type ButtonSize } from "./button";
 
 const meta: Meta<typeof PButton> = {
