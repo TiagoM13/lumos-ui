@@ -23,7 +23,7 @@
     "noFallthroughCasesInSwitch": true,
     "typeRoots": ["./dist/index.d.ts", "node_modules/@types"]
   },
-  "include": ["src", "./index.ts"],
+  "include": ["src", "./index.ts", "@types"],
   "exclude": ["dist", "node_modules", "**/*.test.*", "**/*.stories.*"],
   "references": [
     {

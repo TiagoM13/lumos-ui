@@ -32,6 +32,13 @@ export default defineConfig({
       insertTypesEntry: true,
       rollupTypes: true,
       outDir: "dist/types",
+      exclude: [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.spec.ts",
+        "**/*.spec.tsx",
+        "@types",
+      ],
     }),
     tailwindcss(),
   ],
