@@ -47,23 +47,23 @@ Uma biblioteca de componentes React revolucionária que combina performance exce
 
 ```bash
 # NPM
-npm install photon-ui
+npm install @quantum/photon-ui
 
 # Yarn
-yarn add photon-ui
+yarn add @quantum/photon-ui
 
 # PNPM
-pnpm add photon-ui
+pnpm add @quantum/photon-ui
 ```
 
 ### ⚙️ Setup Rápido
 
 ```tsx
 // 1. Importe os estilos (apenas uma vez)
-import "photon-ui/styles.css";
+import "@quantum/photon-ui/styles.css";
 
 // 2. Use qualquer componente
-import { PButton, PInput, PCard, PModal } from "photon-ui";
+import { PButton, PInput, PCard, PModal } from "@quantum/photon-ui";
 
 function App() {
   return (
@@ -180,7 +180,7 @@ Modal com animações cinematográficas e backdrop blur.
 ### 🎛️ **Tema Personalizado**
 
 ```tsx
-import { PhotonProvider, createPhotonTheme } from "photon-ui";
+import { PhotonProvider, createPhotonTheme } from "@quantum/photon-ui";
 
 const meuTema = createPhotonTheme({
   colors: {
@@ -237,7 +237,7 @@ function App() {
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/seu-usuario/photon-ui.git
+git clone https://github.com/TiagoM13/photon-ui.git
 
 # Instalar dependências
 pnpm install
