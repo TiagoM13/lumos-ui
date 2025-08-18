@@ -2,7 +2,6 @@
   "name": "photon-ui",
   "version": "1.0.0",
   "description": "⚡ Components at the speed of light - Uma biblioteca de componentes React revolucionária com performance excepcional e design futurístico",
-  "private": true,
   "type": "module",
   "exports": {
     ".": {
