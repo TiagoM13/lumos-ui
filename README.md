@@ -7,8 +7,8 @@ Uma biblioteca de componentes React revolucionária que combina performance exce
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/npm/v/photon-ui?style=for-the-badge&color=6366f1" alt="NPM Version" />
-  <img src="https://img.shields.io/npm/dm/photon-ui?style=for-the-badge&color=10b981" alt="Downloads" />
+  <img src="https://img.shields.io/npm/v/@tiagomdev/photon-ui?style=for-the-badge&color=6366f1" alt="NPM Version" />
+  <img src="https://img.shields.io/npm/dm/@tiagomdev/photon-ui?style=for-the-badge&color=10b981" alt="Downloads" />
   <!-- <img src="https://img.shields.io/bundlephobia/minzip/photon-ui?style=for-the-badge&color=f59e0b" alt="Bundle Size" /> -->
   <img src="https://img.shields.io/github/license/TiagoM13/photon-ui?style=for-the-badge&color=ec4899" alt="License" />
 </p>
